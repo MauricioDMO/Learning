@@ -1,4 +1,4 @@
-- [Learning Astro!!](#learning-astro)
+- [Learning Astro!](#learning-astro)
   - [Creando un proyecto](#creando-un-proyecto)
   - [Estructura](#estructura)
   - [Astro Pages](#astro-pages)
@@ -9,11 +9,11 @@
   - [Integraciones de Astro](#integraciones-de-astro)
   - [Renderizado condicional con directiva](#renderizado-condicional-con-directiva)
   - [404](#404)
-  - [Rutas/paginas Dinamicas](#rutaspaginas-dinamicas)
+  - [Rutas/paginas Dinámicas](#rutaspaginas-dinámicas)
   - [View Transitions](#view-transitions)
-  - [Persistir informacion](#persistir-informacion)
+  - [Persistir información](#persistir-información)
 
-# Learning Astro!!
+# Learning Astro!
 
 <br>
 
@@ -23,16 +23,16 @@ Usamos el comando:
 
 `npm create astro@latest`
 
-Respondemos todas las preguntas que nos haga la instalacion.
+Respondemos todas las preguntas que nos haga la instalación.
 
 <br>
 
 ## Estructura
 
-.vscode/        # Configuracion de code
-node_modules/   # Librerias de JS 
+.vscode/        # Configuración de code
+node_modules/   # Librerías de JS 
 public/         # Archivos a que el navegador pueda acceder
-src/            # Codigo de desarrollo
+src/            # Código de desarrollo
   pages/
   components/
   layouts/
@@ -41,19 +41,19 @@ src/            # Codigo de desarrollo
 
 ## Astro Pages
 
-Dento de la carpeta **pages** crearemos las distintas paginas con su correspodiente nombre.
+Dentro de la carpeta **pages** crearemos las distintas paginas con su correspondiente nombre.
 Con el formato: `<name>.astro`
 
 <br>
 
 ## Astro Extension
 
-En el archivo **.astro** podemos escribir html (jsx) y al final del todo podemos usar la etiqueta style para darle los estilos a nuestro documento/componente, este no es global si no que es unico del componente en el que se escribe.
+En el archivo **.astro** podemos escribir html (jsx) y al final del todo podemos usar la etiqueta style para darle los estilos a nuestro documento/componente, este no es global si no que es único del componente en el que se escribe.
 
 La estructura seria la siguiente:
 
 ```astro
-// Codigo que pasara a ser estatico
+// Código que pasara a ser estático
 ---
 const title = "Mi genial titulo!!!"
 ---
@@ -94,7 +94,7 @@ import MiComponente from '../components/MiComponente.astro'
 
 **Props** <br>
 
-Astro nos otroga una variable global llamada `Astro` que podemos llamar para acceder a determinados valores
+Astro nos otorga una variable global llamada `Astro` que podemos llamar para acceder a determinados valores
 
 ```astro
 ---
@@ -120,7 +120,7 @@ Creamos la carpeta `Layouts` dentro de `src` y podemos crear nuestro `Layout.ast
 
 Dentro del Layout ponemos la etiqueta especial llamada `<slot/>` que sera lo que haya dentro de nuestra etiqueta Layout pasara a ser reemplazado por el `<slot/>`
 
-Y dentro de este podriamos pasarle propiedades.
+Y dentro de este podríamos pasarle propiedades.
 
 Ya teniendo nuestro componente vamos a ejemplificar como funcionan los slots:
 
@@ -154,10 +154,10 @@ Y podemos escribir dentro de de ese archivo normalmente markdown.
 
 Podemos crear sub rutas creando simplemente carpetas dentro de `pages`
 
-Si colocamos los 3 guiones al principio de un markdown se le conoce como meta informacion.
+Si colocamos los 3 guiones al principio de un markdown se le conoce como meta información.
 Este no puede ejecutar *JS* asi que tenemos que usar pares de clave valor.
 
-Para inportar el Layout hacemos lo siguiente:
+Para importar el Layout hacemos lo siguiente:
 
 ```markdown
 ---
@@ -171,7 +171,7 @@ Dentro de cada sub ruta/carpeta podemos colocar un `index.astro` para acceder a 
 
 **Obtener Rutas de archivos** <br>
 
-La variable Astro tiene un metodo que es para obtener todos los archivos de una carpeta este es `glob()` a este le pasamos una expresion regular para localizar los archivos.
+La variable Astro tiene un método que es para obtener todos los archivos de una carpeta este es `glob()` a este le pasamos una expresión regular para localizar los archivos.
 
 Se utiliza asi:
 
@@ -192,7 +192,6 @@ Quedaría de la siguiente forma: `archivo.frontmatter.title`
 <br>
 
 ## Integraciones de Astro
----
 
 Estas agregan nuevas funcionalidades a el proyecto.
 Podemos usar React, Vue, Svelte, Solid, y más.
@@ -203,7 +202,7 @@ correcciones ortográficas
 
 Para poder integrar React usamos el comando: `npx astro add react`
 
-Claro pero *Astro* no devuelve js por defecto en nuestros componentes, por eso hay unos marcadores que tenemos que usar en nuestros componentes para decirle cuando lo va a ejecutar y/o descargar el codigo js.
+Claro pero *Astro* no devuelve js por defecto en nuestros componentes, por eso hay unos marcadores que tenemos que usar en nuestros componentes para decirle cuando lo va a ejecutar y/o descargar el código js.
 
 Estos marcadores se les reconoce como directivas:
 
@@ -213,7 +212,7 @@ Estos marcadores se les reconoce como directivas:
 - `client:only`
 - `client:visible` Cuando vaya a ser visible el componente descarga.
 
-Esto es para componentes, pero tambien hay directivas para estilos y esta es `is`:
+Esto es para componentes, pero también hay directivas para estilos y esta es `is`:
 
 - `is:global` Para que se apliquen los estilos en todo el documento.
 - `is:inline` Para dejar el estilo en el html
@@ -223,7 +222,7 @@ Estos se aplican en las etiquetas o componentes de la siguiente manera:
 
 ```astro
 ---
-import {MiComponente} from '../compoments/Micomponente.astro'
+import {MiComponente} from '../components/MiComponente.astro'
 ---
 
 <MiComponente client:visible>
@@ -238,11 +237,10 @@ import {MiComponente} from '../compoments/Micomponente.astro'
 <br>
 
 ## Renderizado condicional con directiva
----
 
-Podemos utilizar una directiva para poder ahorrarnos un poco de logica y hacer el renderizado mas declarativo.
+Podemos utilizar una directiva para poder ahorrarnos un poco de lógica y hacer el renderizado mas declarativo.
 
-Existe una directiva para las clases llamada `:list` a el cual le pasamos un array con strigs u objetos que seran nuestras clases se utiliza de la siguiente forma:
+Existe una directiva para las clases llamada `:list` a el cual le pasamos un array con strings u objetos que serán nuestras clases se utiliza de la siguiente forma:
 
 ```astro
 ---
@@ -254,49 +252,45 @@ const miCondicional = True
 class:list={[
   'clase1 clase2',
   {
-    "clase3 clase4": miCondicional,  // Dependiendo de nuestro condicional siendo true se renderizara el atributo
+    "clase3 clase4": miCondicional,  // Dependiendo de nuestro condicional siendo true se renderizará el atributo
     "Clase5 clase6": !miCondicional
   }
 ]}
 >
   Mi querido texto
 </div>
-
 ```
 
 <br>
 
 ## 404
----
 
-Podemos crear un 404 muy pero muy facilmente, simplemente nombrando un documento de astro `404.astro` en la carpeta `pages`, funciona como una pagina normal solo que se mostrara cuando no exista una pagina.
+Podemos crear un 404 muy pero muy fácilmente, simplemente nombrando un documento de astro `404.astro` en la carpeta `pages`, funciona como una pagina normal solo que se mostrara cuando no exista una pagina.
 
 <br>
 
-## Rutas/paginas Dinamicas 
----
+## Rutas/paginas Dinámicas
 
-Estas se crean colocando entre corchetes la variable con la que queremos crear/nombrar las paginas dinamicas, esto se haria de la siguiente forma: `[id].astro`
+Estas se crean colocando entre corchetes la variable con la que queremos crear/nombrar las paginas dinámicas, esto se haría de la siguiente forma: `[id].astro`
 
-Esta pagina recibira como parametro la id con la que queremos generara dinamicamente.
+Esta pagina recibirá como parámetro la id con la que queremos generara dinámicamente.
 
-Pero esto para ser estatico necesita que le pasemos todas las rutas que seran posibles acceder, esto se hace exportando una funcion que la llamaremos *getStaticPaths*.
+Pero esto para ser estático necesita que le pasemos todas las rutas que serán posibles acceder, esto se hace exportando una función que la llamaremos *getStaticPaths*.
 
-Esta debe devolver un array de objetos que contengan los parametros que queremos usar en la pagina este quedaria de la siguiente forma:
+Esta debe devolver un array de objetos que contengan los parámetros que queremos usar en la pagina este quedaría de la siguiente forma:
 
 ```javascript
 [
-  {parans: {id: '138472asd33'}},
-  {parans: {id: '82w37rwef38'}}
+  {params: {id: '138472asd33'}},
+  {params: {id: '82w37reef38'}}
 ]
 ```
 
 <br>
 
 ## View Transitions
----
 
-Solo tenemos que importar en el *Layout* (ya que queremos que conecte/afecte a todas nuestras paginas) importamos `ViewTransitions` desde `astro:transitions`, luego usamos el componente en el `<head>` del layout, quedaria de la siguiente manera:
+Solo tenemos que importar en el *Layout* (ya que queremos que conecte/afecte a todas nuestras paginas) importamos `ViewTransitions` desde `astro:transitions`, luego usamos el componente en el `<head>` del layout, quedaría de la siguiente manera:
 
 ```astro
 ---
@@ -320,16 +314,15 @@ import { ViewTransitions } from 'astro:transitions'
 
 <br>
 
-## Persistir informacion
----
+## Persistir información
 
-Podemos persistir informacion entre paginas usando la directica `transition:persist` en nuestro elemento u componente, para que este persista su estado/informacion entre paginas.
+Podemos persistir información entre paginas usando la directica `transition:persist` en nuestro elemento u componente, para que este persista su estado/información entre paginas.
 
 Pero para esto tenemos que tener importado las `ViewTransitions`
 
 ```astro
 ---
-import { MiComponente } from '../compoments/MiComponente.jsx'
+import { MiComponente } from '../components/MiComponente.jsx'
 ---
 
 <MiComponente transition:persist client:visible />
