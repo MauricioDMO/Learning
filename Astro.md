@@ -316,7 +316,7 @@ import { ViewTransitions } from 'astro:transitions'
 
 ## Persistir información
 
-Podemos persistir información entre paginas usando la directica `transition:persist` en nuestro elemento u componente, para que este persista su estado/información entre paginas.
+Podemos persistir información entre paginas usando la directiva `transition:persist` en nuestro elemento u componente, para que este persista su estado/información entre paginas.
 
 Pero para esto tenemos que tener importado las `ViewTransitions`
 
